@@ -1,0 +1,1 @@
+const ImportModel = require("./impoMaritimo");
