@@ -6,7 +6,8 @@ const impoSchema = new mongoose.Schema(
     {
         bl:{
             type:String,
-            required:true
+            required:true,
+            unique : true
         },
         producto:{
             type:String,
@@ -33,4 +34,6 @@ const impoSchema = new mongoose.Schema(
     timestamps: true
 });
 
-export const ImportModel = mongoose.model(impoColection,impoSchema);
+const ImportModel = mongoose.model(impoColection,impoSchema);
+
+module.exports = ImportModel

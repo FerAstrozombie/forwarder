@@ -1,20 +1,14 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
+const connectMongoDB = require("./config/dbOptions")
 
-dotenv.config({ path: "./config.env"});
 
-const khaiRouters = require("./routes/api/importacionMaritima")
+const khaiRouters = require("./routes/index")
 
 const app = express();
 
 app.use(express.json());
 
-mongoose.connect(process.env.DB_CONNECTION)
-    .then(connection =>{
-        console.log("Db connect successuly");
-    })
-    .catch()
+connectMongoDB();
 
 const PORT = process.env.PORT || 8080;
 

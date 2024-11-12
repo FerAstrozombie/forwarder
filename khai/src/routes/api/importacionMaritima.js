@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get('/', ImportController.getImport);
 
+router.get('/:id', ImportController.getById)
+
 router.post('/', ImportController.saveImport)
 
 module.exports = router

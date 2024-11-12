@@ -1,39 +1,38 @@
-class MongoContainer{
+class MongoCointainer{
     constructor(model){
         this.model = model;
     }
 
     async getById(id){
         try {
-            const object = await this.model.findById(id).lean();
+            const object = await this.model.findById(id);
             if(!object){
                 return {message:`Error al buscar: no se encontró el id ${id}`, error:true};
             } else {
-                return object;
+                return {message: object, error:false};
             }
         } catch (error) {
             return {message:`Hubo un error ${error}`, error:true};
         }
-    };
+    }
 
     async getAll(){
         try {
-            const objects = await this.model.find().lean();
+            const objects = await this.model.find();
             return objects;
         } catch (error) {
             return [];
         }
-    };
+    }
 
-    async save(object){
+    async save(product){
         try {
-            const data = await this.model.create(object);
-            /* return `new document saved with id: ${data._id}` */
-            return data
+            const object = await this.model.create(product);
+            return `new document saved with id: ${object._id}`
         } catch (error) {
             return {message:`Error al guardar: ${error}`};
         }
-    };
+    }
 
     async updateById(body, id){
         try {
@@ -42,7 +41,7 @@ class MongoContainer{
         } catch (error) {
             return {message:`Error al actualizar: no se encontró el id ${id}`};
         }
-    };
+    }
 
     async deleteById(id){
         try {
@@ -51,7 +50,7 @@ class MongoContainer{
         } catch (error) {
             return {message:`Error al borrar: no se encontró el id ${id}`};
         }
-    };
+    }
 
     async deleteAll(){
         try {
@@ -60,7 +59,7 @@ class MongoContainer{
         } catch (error) {
             return {message:`Error al borrar todo: ${error}`};
         }
-    };
+    }
 }
 
-module.exports = MongoContainer;
+module.exports = MongoCointainer;
