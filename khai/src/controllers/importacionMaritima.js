@@ -49,20 +49,6 @@ class ImportController{
         res.status(200).json({"message" : response})
     }
 
-    static async getLista (req, res){
-        try {
-            const response = await ImportSevice.getImport();
-            res.render("listofimports",{
-                productos: response
-            })
-        } catch (error) {
-            res.status(400).json({
-                status: "ERROR",
-                message:`Hubo un error ${error}`
-            })
-        }
-    };
-
     static async updateImport (req, res){
         const id = req.params.id;
         const response = await ImportSevice.getById(id);
