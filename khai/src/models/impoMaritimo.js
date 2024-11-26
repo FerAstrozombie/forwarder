@@ -9,15 +9,27 @@ const impoSchema = new mongoose.Schema(
             required:true,
             unique : true
         },
-        producto:{
-            type:String,
+        condition:{
+            type: String,
+            required: true
+        },
+        product:{
+            type: String,
             required:true
         },
-        peso:{
-            type:Number,
+        shipper:{
+            type: String,
+            required: true,
+        },
+        consignee:{
+            type: String,
             required:true
         },
-        tarifa:{
+        weigth:{
+            type: Number,
+            required:true
+        },
+        rate:{
             type: Number,
             required:true,
         },
@@ -25,10 +37,14 @@ const impoSchema = new mongoose.Schema(
             type: String,
             required:true,
         },
-        consignatario:{
-            type:String,
-            required:true
+        buque:{
+            type: String,
+            required: true
         },
+        arrival:{
+            type: String,
+            required: true
+        }
     },
 {
     timestamps: true
