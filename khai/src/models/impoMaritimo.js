@@ -26,11 +26,11 @@ const impoSchema = new mongoose.Schema(
             required:true
         },
         weigth:{
-            type: Number,
+            type: String,
             required:true
         },
         rate:{
-            type: Number,
+            type: String,
             required:true,
         },
         origen:{

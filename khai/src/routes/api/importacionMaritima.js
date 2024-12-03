@@ -7,6 +7,6 @@ router.get('/', ImportController.getImport);
 
 router.get('/:id', ImportController.getById)
 
-router.post('/', ImportController.saveImport)
+router.post('/saveimport', ImportController.saveImport)
 
 module.exports = router

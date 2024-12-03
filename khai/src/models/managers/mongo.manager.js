@@ -25,9 +25,9 @@ class MongoCointainer{
         }
     }
 
-    async save(product){
+    async save(operacion){
         try {
-            const object = await this.model.create(product);
+            const object = await this.model.create(operacion);
             return `new document saved with id: ${object._id}`
         } catch (error) {
             return {message:`Error al guardar: ${error}`};
