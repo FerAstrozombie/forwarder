@@ -1,13 +1,19 @@
 const express = require("express");
 const router = express.Router();
 
-const productRouter = require("./api/importacionMaritima.js");
+const importRouter = require("./api/importacionMaritima.js");
+const exportRouter = require("./api/exportacionMaritima.js");
 
-productRouter.get("/",(req, res)=>{
+importRouter.get("/",(req, res)=>{
     res.send("bienvenido")
 })
 
-router.use(productRouter)
+exportRouter.get("/",(req, res) =>{
+    res.send("bienvenido")
+})
 
-module.exports = productRouter;
+router.use(importRouter)
+router.use(exportRouter)
+
+module.exports = {importRouter, exportRouter}
 

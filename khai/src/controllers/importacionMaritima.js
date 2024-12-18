@@ -38,7 +38,8 @@ class ImportController{
     };
 
     static async deleteById (req, res) {
-        const response = await ImportSevice.deleteById(req.params.id)
+        
+        const response = await ImportSevice.deleteImportById(req.params.id)
         res.status(200).json({"message" : response})
     }
 
@@ -49,11 +50,6 @@ class ImportController{
         res.status(200).json({"message" : responseUpdate});
     };
 
-    static async deleteImport(req, res){
-        const id = req.params.id;
-        const response = await ImportSevice.deleteById(id);
-        res.status(200).json({"message" : response})
-    }
 }
 
 module.exports = ImportController;

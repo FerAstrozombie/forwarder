@@ -3,10 +3,12 @@ const ImportController = require("../../controllers/importacionMaritima");
 const router = express.Router();
 
 
-router.get('/', ImportController.getImport);
+router.get('/importacion', ImportController.getImport);
 
-router.get('/:id', ImportController.getById)
+router.get('/importacion/:id', ImportController.getById)
 
-router.post('/saveimport', ImportController.saveImport)
+router.post('/importacion/saveimport', ImportController.saveImport)
+
+router.delete('/importacion/deleteimport/:id', ImportController.deleteById)
 
 module.exports = router
