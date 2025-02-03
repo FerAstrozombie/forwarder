@@ -18,6 +18,9 @@ class ExportSevice {
     static async deleteExportById(id){
         return await ExportManagerReal.deleteById(id);
     }
+    static async updateExport(id, body){
+        return await ExportManagerReal.updateById(body, id)
+    }
 }
 
 module.exports = ExportSevice; 

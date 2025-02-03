@@ -17,6 +17,9 @@ class ImportSevice {
     static async deleteImportById(id){
         return await ImportManagerReal.deleteById(id)
     }
+    static async updateImport(id, body){
+        return await ImportManagerReal.updateById(body, id)
+    }
 }
 
 module.exports = ImportSevice; 

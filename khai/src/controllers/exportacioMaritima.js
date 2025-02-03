@@ -44,16 +44,10 @@ class ExportController{
 
     static async updateExport (req, res){
         const id = req.params.id;
-        const response = await ExportSevice.getById(id);
-        const responseUpdate = await ExportController.updateExport(req.body, id);
+        const response = await ExportSevice.getExportById(id);
+        const responseUpdate = await ExportSevice.updateExport(id, req.body);
         res.status(200).json({"message" : responseUpdate});
     };
-
-    static async deleteExport(req, res){
-        const id = req.params.id;
-        const response = await ExportSevice.deleteById(id);
-        res.status(200).json({"message" : response})
-    }
 }
 
 module.exports = ExportController;

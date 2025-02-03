@@ -45,10 +45,13 @@ class ImportController{
 
     static async updateImport (req, res){
         const id = req.params.id;
-        const response = await ImportSevice.getById(id);
-        const responseUpdate = await ImportSevice.updateImport(req.body, id);
+        const response = await ImportSevice.getImportById(id);
+        const responseUpdate = await ImportSevice.updateImport(id, req.body);
         res.status(200).json({"message" : responseUpdate});
     };
+    static async updateImport(id, body){
+        return await ImportManagerReal.updateById(body, id)
+    }
 
 }
 

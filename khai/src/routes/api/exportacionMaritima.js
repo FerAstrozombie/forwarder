@@ -11,4 +11,6 @@ router.post('/exportacion/saveexport', ExportController.saveExport);
 
 router.delete('/exportacion/deleteexport/:id', ExportController.deleteById);
 
+router.patch('/exportacion/updateexport/:id', ExportController.updateExport)
+
 module.exports = router
